@@ -4,8 +4,8 @@ version = "0.1.0"
 authors = ["Simon Sapin <simon.sapin@exyr.org>", "James Munns <james.munns@gmail.com>"]
 
 [dependencies.teensy3]
-git = "https://github.com/jamesmunns/teensy3-rs.git"
-branch = "add-feature-flags"
+#git = "https://github.com/jamesmunns/teensy3-rs.git"
+path = "../teensy3-rs/teensy3"
 features = ["teensy_3_5"]
 
 [profile.dev]
