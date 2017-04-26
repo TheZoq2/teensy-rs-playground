@@ -10,6 +10,9 @@ flash: build
 monitor:
 	screen ${DEVICE_FILE} 115200
 
+doc:
+	xargo doc --target thumbv7em-none-eabihf
+
 clean:
 	xargo clean
 	git clean -Xf
