@@ -15,6 +15,7 @@ use teensy3::util::{
 };
 
 mod wire;
+mod serial;
 
 fn slow_math() -> f32
 {
@@ -57,12 +58,16 @@ pub extern fn main() {
 
     wire::begin_master();
 
+    let serial = serial::Serial2{};
+    serial.begin();
+
     loop {
         // Show we are alive
         unsafe {
             alive();
         }
 
+        /*
         //Test i2c communication by reading temperature from a bmp085
         let device_addr = 0b1110111;
         //Set the memory address we want to read from
@@ -77,6 +82,7 @@ pub extern fn main() {
         let result = ((buffer[0] as u16) << 8) + buffer[1] as u16;
 
         println!("temperature value: {}", result);
+        */
 
         // If the serial write fails, we will halt (no more alive blinks)
         hello(&ser).unwrap();
